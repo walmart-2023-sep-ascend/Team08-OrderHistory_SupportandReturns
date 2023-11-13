@@ -1,0 +1,12 @@
+/* Footer.css */
+
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: #1B74CE; /* Set the background color for the footer */
+  color: #fff; /* Set the text color to white */
+  text-align: right; /* Align the text to the right */
+  padding: 10px 10px 0px 10px; /* Add padding to the top and bottom */
+}
+  
