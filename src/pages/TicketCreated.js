@@ -3,19 +3,20 @@ import Card from "../components/layouts/Cards";
 import Header from "../components/layouts/Header";
 import Footer from "../components/layouts/Footer";
 import classes from '../components/forms/TicketCreation.module.css'
+import { useEffect, useState } from "react";
 
-function ReturnCreated() {
-    const location=useLocation()
-    const {state} =location
-    console.log(location)
+function TicketCreated() {
+    const location = useLocation()
+    const {state} = location
+    const {response} = state
+    const [ticketDetails , setTicketdetails] = useState(response)
     return (
         <div>
             <Header />
-            <h3 className={classes.text}>Returns Creation</h3>
+            <h3 className={classes.text}>Support Ticket Creation</h3>
             <Card>
-                <p>Return id</p>
-                <p>Refund will be credited in two days</p>
-                <p>Refund for order# has been initiated successfully</p>
+                <p>Ticket id #{ticketDetails.ticketId}</p>
+                <p>Your support ticket has been created successfully. We will address your issue shortly</p>
                 <br />
                 <br />
                 <br />
@@ -25,4 +26,4 @@ function ReturnCreated() {
         </div>
     )
 }
-export default ReturnCreated;
+export default TicketCreated;

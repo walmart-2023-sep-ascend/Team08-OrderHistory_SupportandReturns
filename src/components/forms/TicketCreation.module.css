@@ -4,6 +4,7 @@
   
   .control {
     margin-bottom: 0.5rem;
+    width: auto;
   }
   
   .control label {
@@ -43,3 +44,20 @@
     background-color: #a50e48;
     border-color: #a50e48;
   }
+
+.text{
+  text-align: center;
+}
+
+.search{
+  padding: 5px;
+  font-size: 20px;
+  width:fit-content;
+  text-align: center;
+  float: right;
+}
+
+.btnalt{
+  background-color: transparent;
+  color: #0c22a4;
+}
