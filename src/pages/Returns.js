@@ -4,10 +4,10 @@ import Header from "../components/layouts/Header";
 import Footer from "../components/layouts/Footer";
 import classes from '../components/forms/TicketCreation.module.css'
 function Returns() {
+    const returns_api='https://returnsv1.free.beeceptor.com/api/returns';
     const navigate = useNavigate();
     function createReturnsHandler(returns) {
-        fetch(
-            'https://returnproduct.free.beeceptor.com/api/returns',
+        fetch(returns_api,
             {
                 method: 'POST',
                 body: JSON.stringify(returns),
@@ -24,10 +24,10 @@ function Returns() {
     }
     return (
         <div>
-                <Header />
-                <h3 className={classes.text}>Returns Processing</h3>
-                <ReturnsForm onCreateReturns={createReturnsHandler} />
-                <Footer />
+            <Header />
+            <h3 className={classes.text}>Returns Processing</h3>
+            <ReturnsForm onCreateReturns={createReturnsHandler} />
+            <Footer />
         </div>
     )
 }

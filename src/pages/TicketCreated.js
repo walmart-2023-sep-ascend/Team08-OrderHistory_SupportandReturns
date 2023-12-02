@@ -3,7 +3,7 @@ import Card from "../components/layouts/Cards";
 import Header from "../components/layouts/Header";
 import Footer from "../components/layouts/Footer";
 import classes from '../components/forms/TicketCreation.module.css'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 function TicketCreated() {
     const location = useLocation()

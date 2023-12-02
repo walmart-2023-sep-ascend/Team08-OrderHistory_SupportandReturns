@@ -9,7 +9,6 @@ function OrderTracker() {
   const { state } = location
   const { response } = state
   const [ordertracker, setOrderTracker] = useState(response)
-  console.log(ordertracker);
   return (
     <div>
       <Header />

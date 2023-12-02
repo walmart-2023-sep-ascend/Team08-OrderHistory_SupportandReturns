@@ -6,6 +6,7 @@ function TrackerOverlay(props) {
     const orderInputRef=useRef();
     const emailInputRef=useRef();
     const navigate=useNavigate();
+    const tracker_api='https://ordertracker.free.beeceptor.com/api/orders/track';
     function submitHandler(event){
         event.preventDefault();
             const enteredOrderNumber=orderInputRef.current.value;
@@ -15,8 +16,7 @@ function TrackerOverlay(props) {
                 OrderNumber:enteredOrderNumber,
                 EmailId:enteredEmailId
             }
-            fetch(
-                'https://ordertracker.free.beeceptor.com/api/orders/track',
+            fetch(tracker_api,
                 {
                     method:'POST',
                     body:JSON.stringify(orderTracking),
@@ -34,14 +34,14 @@ function TrackerOverlay(props) {
     return(
         <div className={classes.modal}>
             <form onSubmit={submitHandler}>
-                <div>
-                    <label htmlFor='Order Number'>Order Number</label>
+                <div className={classes.input}>
+                    <label htmlFor='Order Number'>Order Number</label><br/>
                     <input type='number' required id='Order Number' ref={orderInputRef}/>
                 </div>
-                <div>
-                    <label htmlFor='Email'>Email</label>
-                    <input type='text' required id='Email' ref={emailInputRef}/>
-                </div>
+                <div className={classes.input}>
+                    <label htmlFor='Email'>Email ID</label><br/>
+                    <input type='email' required id='Email' ref={emailInputRef}/>
+                </div><br/>
                 <div>
                     <button className={classes.btn}>Submit</button>
                 </div>

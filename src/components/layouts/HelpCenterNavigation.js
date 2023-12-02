@@ -2,28 +2,23 @@ import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import Card from "./Cards";
-import Returns from "../../pages/Returns";
+import classes from "../forms/TicketCreation.module.css"
 
 function HelpCenterNavigation() {
     return (
         <div>
             <Header />
+            <h3 className={classes.text}>Help Center</h3>
             <ul>
                 <ul>
                     <div>
-                        <div className="logo">
-                            <img src={Returns} alt="Walmart Logo" width="75" height="75" /> {/* Adjust width and height as needed */}
-                        </div>
                         <Card>
                             <Link to='/support-ticket'>Create Support Ticket</Link>
                         </Card>
                     </div>
                 </ul><br /><br />
                 <ul>
-                    <div className="card-container">
-                        <div className="logo">
-                            <img src={Returns} alt="Returns" width="75" height="75" /> {/* Adjust width and height as needed */}
-                        </div>
+                    <div>
                         <Card>
                             <Link to='/returns'>Return Product</Link>
                         </Card>

@@ -3,17 +3,23 @@ import Card from "../components/layouts/Cards";
 import Header from "../components/layouts/Header";
 import Footer from "../components/layouts/Footer";
 import classes from '../components/forms/TicketCreation.module.css'
+import { useLayoutEffect, useState } from "react";
+import Spinner from "../components/layouts/Spinner";
 
 function ReturnCreated() {
     const location=useLocation()
     const {state} =location
-    console.log(location)
+    const {response}=state
+    const [returns,setReturns]=useState(response);
+    useLayoutEffect(()=>{
+        <Spinner/>
+    },[])
     return (
         <div>
             <Header />
             <h3 className={classes.text}>Returns Creation</h3>
             <Card>
-                <p>Return id</p>
+                <p>Return id {returns.returnId}</p>
                 <p>Refund will be credited in two days</p>
                 <p>Refund for order# has been initiated successfully</p>
                 <br />

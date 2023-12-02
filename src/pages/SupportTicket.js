@@ -5,9 +5,9 @@ import Header from "../components/layouts/Header";
 import classes from '../components/forms/TicketCreation.module.css'
 function SupportTicket() {
     const navigate = useNavigate();
-    function createTicketHandler(ticket) {
-        fetch(
-            'https://mp87bd3d06bf4334e796.free.beeceptor.com/api/support-tickets',
+    const supportticket_api='https://mp87bd3d06bf4334e796.free.beeceptor.com/api/support-tickets';
+    function createTicketHandler(ticket){
+        fetch(supportticket_api,
             {
                 method: 'POST',
                 body: JSON.stringify(ticket),
