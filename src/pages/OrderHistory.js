@@ -8,7 +8,7 @@ import Background from "../components/layouts/Backdrop";
 import Spinner from "../components/layouts/Spinner";
 
 function OrderHistory() {
-    const order_hist_api = 'http://34.125.137.138:9700/order/history/101';
+    const order_hist_api = 'http://orderhistory-service/order/history/101';
     const [history, setHistory] = useState();
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {

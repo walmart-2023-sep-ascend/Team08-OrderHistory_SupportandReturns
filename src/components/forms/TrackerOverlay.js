@@ -6,7 +6,7 @@ function TrackerOverlay(props) {
     const orderInputRef=useRef();
     const emailInputRef=useRef();
     const navigate=useNavigate();
-    const tracker_api='https://ordertracker.free.beeceptor.com/api/orders/track';
+    const tracker_api='http://ordertracker-service/track';
     function submitHandler(event){
         event.preventDefault();
             const enteredOrderNumber=orderInputRef.current.value;
