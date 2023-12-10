@@ -3,8 +3,11 @@ import ReturnsForm from "../components/forms/ReturnsForm";
 import Header from "../components/layouts/Header";
 import Footer from "../components/layouts/Footer";
 import classes from '../components/forms/TicketCreation.module.css'
+import { useState } from "react";
+import ErrorModal from "../components/layouts/ErrorModal";
 function Returns() {
     const returns_api='https://returnsv1.free.beeceptor.com/api/returns';
+    const [error, setError] = useState(null);
     const navigate = useNavigate();
     function createReturnsHandler(returns) {
         fetch(returns_api,
@@ -15,12 +18,24 @@ function Returns() {
                     'Content-type': 'application/json'
                 }
             }
-        ).then((response) => response.json())
-        .then((response) => {
+        ).then(response => {
+            if(!response.ok){
+                throw Error('Oops!! Something went wrong. Please try again later...')
+            }
+           return response.json();
+        })
+        .then(response => {
                 navigate('/return-submission', { state:{replace: true, response: response }})
-            }).catch((err) =>{
-                return err.message;
+        }).catch(err =>{
+                setError(err.message);
             })
+    }
+    if(error!=null){
+        return(
+            <section>
+                <ErrorModal/>
+            </section>
+        )
     }
     return (
         <div>

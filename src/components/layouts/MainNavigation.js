@@ -9,7 +9,7 @@ function MainNavigation() {
             <nav>
                 <ul>
                     <ul>
-                        <Link to='/history'>OrderHistory</Link>
+                        <Link to='/history'>Order History</Link>
                     </ul>
                     <ul>
                         <Link to='/help-center'>Need Help? Click Here</Link>

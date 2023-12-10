@@ -6,20 +6,29 @@ import classes from "../components/forms/TicketCreation.module.css"
 import TrackerOverlay from "../components/forms/TrackerOverlay"
 import Background from "../components/layouts/Backdrop";
 import Spinner from "../components/layouts/Spinner";
+import ErrorModal from "../components/layouts/ErrorModal";
 
 function OrderHistory() {
     const order_hist_api = 'http://orderhistory-service/order/history/101';
     const [history, setHistory] = useState();
     const [isLoading, setIsLoading] = useState(true);
+    const [error, setError] = useState(null);
     useEffect(() => {
         fetch(order_hist_api)
-            .then((response) => response.json())
-            .then((data) => {
-                setIsLoading(false)
-                setHistory(data);
+            .then(response => {
+                if(!response.ok){
+                    throw Error('Oops!! Something went wrong. Please try again later...')
+                }
+                return response.json();
             })
-            .catch((err) => {
-                return err.message;
+            .then(data => {
+                setIsLoading(false);
+                setHistory(data);
+                setError(null);
+            })
+            .catch(err => {
+                setIsLoading(false);
+                setError(err.message);
             })
     }, [])
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -33,6 +42,13 @@ function OrderHistory() {
         return (
             <section>
                 <Spinner />
+            </section>
+        )
+    }
+    if(error !=null){
+        return(
+            <section>
+                <ErrorModal/>
             </section>
         )
     }

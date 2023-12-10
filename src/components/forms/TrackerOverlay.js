@@ -1,11 +1,13 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 import classes from '../layouts/Overlay.module.css'
 import { useNavigate } from 'react-router-dom';
+import ErrorModal from '../layouts/ErrorModal';
 
 function TrackerOverlay(props) {
     const orderInputRef=useRef();
     const emailInputRef=useRef();
     const navigate=useNavigate();
+    const [error, setError] = useState(null);
     const tracker_api='http://ordertracker-service/track';
     function submitHandler(event){
         event.preventDefault();
@@ -24,12 +26,24 @@ function TrackerOverlay(props) {
                         'Content-type':'application/json'
                     }
                 }
-            ).then((response) => response.json())
-            .then((response) => {
+            ).then(response => {
+                if(!response.ok){
+                    throw Error('Oops!! Something went wrong. Please try again later...')
+                }
+                return response.json();
+            })
+            .then(response => {
                 navigate('/order-tracker',{state:{replace:true,response:response}})
             }).catch((err)=>{
-                return err.message;
+                setError(err.message);
             }) 
+    }
+    if(error!=null){
+        return(
+            <section>
+                <ErrorModal/>
+            </section>
+        )
     }
     return(
         <div className={classes.modal}>
