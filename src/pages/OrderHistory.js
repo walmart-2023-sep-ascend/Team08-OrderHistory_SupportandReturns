@@ -9,7 +9,7 @@ import Spinner from "../components/layouts/Spinner";
 import ErrorModal from "../components/layouts/ErrorModal";
 
 function OrderHistory() {
-    const order_hist_api = 'http://orderhistory-service/order/history/101';
+    const order_hist_api = 'https://historyv1.free.beeceptor.com/api/orders/history?userId=12345';
     const [history, setHistory] = useState();
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
