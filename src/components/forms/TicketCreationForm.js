@@ -17,9 +17,9 @@ function TicketCreationForm(props) {
         const enteredImage = imageInputRef.current.value;
 
         const ticketCreation = {
-            OrderNumber: enteredOrderNumber,
-            IssueDescription: enteredIssueDescription,
-            Image: enteredImage
+            order_number: enteredOrderNumber,
+            description: enteredIssueDescription,
+            photo_url: enteredImage
         };
         props.onCreateTicket(ticketCreation);
     }
