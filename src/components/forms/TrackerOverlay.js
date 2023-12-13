@@ -8,7 +8,7 @@ function TrackerOverlay(props) {
     const emailInputRef=useRef();
     const navigate=useNavigate();
     const [error, setError] = useState(null);
-    const tracker_api='http://ordertracker-service/track';
+    const tracker_api='http://34.125.139.203:9703/track';
     function submitHandler(event){
         event.preventDefault();
             const enteredOrderNumber=orderInputRef.current.value;
