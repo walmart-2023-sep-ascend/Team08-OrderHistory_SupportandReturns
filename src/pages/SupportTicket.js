@@ -7,7 +7,7 @@ import { useState } from "react";
 import ErrorModal from "../components/layouts/ErrorModal";
 function SupportTicket() {
     const navigate = useNavigate();
-    const supportticket_api='http://34.125.139.203:9702:9701/ticket/create';
+    const supportticket_api='http://34.125.139.203:9701/ticket/create';
     //const supportticket_api='https://mp87bd3d06bf4334e796.free.beeceptor.com/api/support-tickets';
     const [error, setError] = useState(null);
     function createTicketHandler(ticket){
