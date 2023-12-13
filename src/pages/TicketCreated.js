@@ -16,7 +16,7 @@ function TicketCreated() {
             <h3 className={classes.text}>Support Ticket Creation</h3>
             <Card>
                 <p>Ticket id #{ticketDetails.ticketId}</p>
-                <p>Your support ticket has been created successfully. We will address your issue shortly</p>
+                <p>{ticketDetails.message}</p>
                 <br />
                 <br />
                 <br />
