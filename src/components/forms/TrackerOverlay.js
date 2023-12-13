@@ -15,8 +15,8 @@ function TrackerOverlay(props) {
             const enteredEmailId=emailInputRef.current.value;
     
             const orderTracking={
-                OrderNumber:enteredOrderNumber,
-                EmailId:enteredEmailId
+                orderNumber:enteredOrderNumber,
+                email:enteredEmailId
             }
             fetch(tracker_api,
                 {
