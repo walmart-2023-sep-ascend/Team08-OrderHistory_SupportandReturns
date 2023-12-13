@@ -20,8 +20,8 @@ function ReturnCreated() {
             <h3 className={classes.text}>Returns Creation</h3>
             <Card>
                 <p>Return id {returns.returnId}</p>
-                <p>Refund will be credited in two days</p>
-                <p>Refund for order# has been initiated successfully</p>
+                <p>{returns.refundStatus}</p>
+                <p>{returns.message}</p>
                 <br />
                 <br />
                 <br />

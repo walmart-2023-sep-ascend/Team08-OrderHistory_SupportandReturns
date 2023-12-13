@@ -12,7 +12,7 @@ function ReturnsForm(props) {
         const enteredReason = reasonInputRef.current.value;
 
         const returns = {
-            OrderNumber: enteredOrderNumber,
+            OrderId: enteredOrderNumber,
             Reason: enteredReason,
         };
         props.onCreateReturns(returns);
