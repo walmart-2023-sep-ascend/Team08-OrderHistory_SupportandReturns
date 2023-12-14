@@ -6,8 +6,8 @@ import classes from '../components/forms/TicketCreation.module.css'
 import { useState } from "react";
 import ErrorModal from "../components/layouts/ErrorModal";
 function Returns() {
-    const returns_api='http://34.125.139.203:9702/returns'
-    //const returns_api='https://returnsv1.free.beeceptor.com/api/returns';
+    //const returns_api='http://34.125.139.203:9702/returns'
+    const returns_api='https://returnsv1.free.beeceptor.com/api/returns';
     const [error, setError] = useState(null);
     const navigate = useNavigate();
     function createReturnsHandler(returns) {
